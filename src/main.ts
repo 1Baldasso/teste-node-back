@@ -1,5 +1,5 @@
 import { NestFactory } from '@nestjs/core';
-import { ProdutosModule } from './produtos/produtos.module';
+import { ProdutosModule } from './produtos.module';
 import * as dotenv from 'dotenv';
 import mongoose from 'mongoose';
 
