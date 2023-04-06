@@ -8,7 +8,6 @@ export class ProdutosController {
   constructor(private readonly produtosService: ProdutosService) {}
 
   @Post()
-  @Header('Access-Control-Allow-Origin', 'http://localhost:3001/')
   @Header('Access-Control-Allow-Origin', 'https://teste-react-front.vercel.app/')
   @Header('Access-Control-Allow-Headers', 'Content-Type, Authorization')
   create(@Body() createProdutoDto: CreateProdutoDto) {
@@ -16,7 +15,6 @@ export class ProdutosController {
   }
   
   @Get()
-  @Header('Access-Control-Allow-Origin', 'http://localhost:3001/')
   @Header('Access-Control-Allow-Origin', 'https://teste-react-front.vercel.app/')
   @Header('Access-Control-Allow-Headers', 'Content-Type, Authorization')
   findAll(@Query('nome') nome: string, @Query('categoria') categoria: string) {
@@ -28,7 +26,6 @@ export class ProdutosController {
   }
   
   @Get(':id')
-  @Header('Access-Control-Allow-Origin', 'http://localhost:3001/')
   @Header('Access-Control-Allow-Origin', 'https://teste-react-front.vercel.app/')
   @Header('Access-Control-Allow-Headers', 'Content-Type, Authorization')
   findOne(@Param('id') id: string) {
@@ -36,7 +33,6 @@ export class ProdutosController {
   }
   
   @Patch(':id')
-  @Header('Access-Control-Allow-Origin', 'http://localhost:3001/')
   @Header('Access-Control-Allow-Origin', 'https://teste-react-front.vercel.app/')
   @Header('Access-Control-Allow-Headers', 'Content-Type, Authorization')
   async update(@Param('id') id: string, @Body() updateProdutoDto: UpdateProdutoDto) {
@@ -45,7 +41,6 @@ export class ProdutosController {
   }
   
   @Delete(':id')
-  @Header('Access-Control-Allow-Origin', 'http://localhost:3001/')
   @Header('Access-Control-Allow-Origin', 'https://teste-react-front.vercel.app/')
   @Header('Access-Control-Allow-Headers', 'Content-Type, Authorization')
   async remove(@Param('id') id: string) {
