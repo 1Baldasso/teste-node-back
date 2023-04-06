@@ -11,7 +11,7 @@ export class ProdutosController {
   @Header('Access-Control-Allow-Origin', '*')
   async options(): Promise<any> {
     return {
-      statusCode: HttpStatus.OK,
+      statusCode: HttpStatus.NO_CONTENT,
       headers:{
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'GET, POST, PATCH, DELETE, OPTIONS',
