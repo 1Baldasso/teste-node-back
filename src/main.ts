@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { ProdutosModule } from './produtos.module';
+import * as express from 'express';
 import * as dotenv from 'dotenv';
 import mongoose from 'mongoose';
 
@@ -15,6 +16,10 @@ async function bootstrap() {
     app.close();
   });
   const app = await NestFactory.create(ProdutosModule);
+  app.use((req:any,res:any,next:any) =>{
+    res.setHeader('Access-Control-Allow-Origin', '*')
+    next();
+  })
   await app.listen(process.env.PORT || 3000);
 }
 bootstrap();
