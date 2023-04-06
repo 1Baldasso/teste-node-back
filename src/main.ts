@@ -19,7 +19,7 @@ async function bootstrap() {
   app.use((req:any,res:any,next:any) =>{
     res.setHeader('Access-Control-Allow-Origin', '*')
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Accept');
     next();
   })
   await app.listen(process.env.PORT || 3000);
