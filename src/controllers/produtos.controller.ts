@@ -1,4 +1,4 @@
-import { Controller, Query, Get, Post, Body, Patch, Param, Delete, Header, Options, HttpStatus } from '@nestjs/common';
+import { Controller, Query, Get, Post, Body, Patch, Param, Delete, Header, Options, HttpStatus, Put } from '@nestjs/common';
 import { ProdutosService } from '../services/produtos.service';
 import { CreateProdutoDto } from '../models/dto/create-produto.dto';
 import { UpdateProdutoDto } from '../models/dto/update-produto.dto';
@@ -15,7 +15,7 @@ export class ProdutosController {
       headers:{
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'GET, POST, PATCH, DELETE, OPTIONS',
-        'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+        'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
       }
     };
   }
@@ -42,7 +42,7 @@ export class ProdutosController {
     return this.produtosService.findOne(id);
   }
   
-  @Patch(':id')
+  @Put(':id')
   @Header('Access-Control-Allow-Origin', '*')
   async update(@Param('id') id: string, @Body() updateProdutoDto: UpdateProdutoDto) {
     this.produtosService.update(id, updateProdutoDto);
