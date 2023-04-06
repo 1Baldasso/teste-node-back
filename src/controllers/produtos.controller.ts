@@ -1,4 +1,4 @@
-import { Controller, Query, Get, Post, Body, Patch, Param, Delete, Header } from '@nestjs/common';
+import { Controller, Query, Get, Post, Body, Patch, Param, Delete, Header, Options, HttpStatus } from '@nestjs/common';
 import { ProdutosService } from '../services/produtos.service';
 import { CreateProdutoDto } from '../models/dto/create-produto.dto';
 import { UpdateProdutoDto } from '../models/dto/update-produto.dto';
@@ -6,6 +6,19 @@ import { UpdateProdutoDto } from '../models/dto/update-produto.dto';
 @Controller('produtos')
 export class ProdutosController {
   constructor(private readonly produtosService: ProdutosService) {}
+
+  @Options()
+  @Header('Access-Control-Allow-Origin', '*')
+  async options(): Promise<any> {
+    return {
+      statusCode: HttpStatus.OK,
+      headers:{
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PATCH, DELETE, OPTIONS',
+        'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+      }
+    };
+  }
 
   @Post()
   @Header('Access-Control-Allow-Origin', '*')
